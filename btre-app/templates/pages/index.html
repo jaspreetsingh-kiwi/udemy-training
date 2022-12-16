@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% load humanize %}
 
@@ -9,6 +10,7 @@
 <section id="showcase">
     <div class="container text-center">
       <div class="home-search p-5">
+          <img src="{% static 'img/showcase.jpg' %}" alt="">
         <div class="overlay p-5">
           <h1 class="display-4 mb-4">
             Property Searching Just Got So Easy
