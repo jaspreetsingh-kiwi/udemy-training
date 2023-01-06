@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+     table,th,td {
+            width:%;
+            background-color:white;
+            border: 1px solid black;
+            align-content: center;
+            justify-content: center;
+
+
+        }
+        </style>
+    <title>Display Data</title>
+</head>
+<body>
+<h2> Employee Data </h2>
+<table >
+    <tr>
+        <th>Name</th>
+        <th>Company Name</th>
+        <th>Company Description</th>
+        <th>Company Image</th>
+    </tr>
+<!--  Read Operations -->
+    {% for val in key1 %}
+    <tr>
+        <td>{{val.name}}</td>
+        <td>{{val.company_name}}</td>
+        <td>{{val.company_description}}</td>
+            {% if val.company_image %}
+                <td>
+                    <img src="{{ val.company_image.url }}" alt="">
+                </td>
+            {% endif %}
+        <td>
+<!--            <a href="{% url 'updatedata' val.id %}" type="submit" >Edit</a>-->
+            <form action="{% url 'updatedata' val.id %}">
+              <button type="submit">Edit</button>
+           </form>
+            <form action="{% url 'deletedata' val.id %}" method="post">{% csrf_token %}
+                <input type="submit" value="Delete">
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>
