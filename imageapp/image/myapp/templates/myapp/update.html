@@ -1,0 +1,10 @@
+{% extends 'myapp/home.html' %}
+{% block content %}
+<h4>Update Student Information</h4>
+    <form action="" method="post">
+       {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Update">
+    </form>
+
+{% endblock content %}

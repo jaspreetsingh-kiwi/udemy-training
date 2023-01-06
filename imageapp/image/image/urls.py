@@ -22,5 +22,8 @@ from myapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home)
+    path('', views.home),
+    path('display', views.display),
+    path('delete/<int:id>/', views.delete_data, name='deletedata'),
+    path('<int:id>/', views.update_data, name='updatedata')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
